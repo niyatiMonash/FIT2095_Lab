@@ -1,0 +1,39 @@
+<html>
+
+<head>
+    <style>
+        table,
+        th,
+        td {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <h1> Welcome
+        <%= username%>
+    </h1>
+    </br>
+    <table>
+        <tr>
+            <td>Task Name</td>
+            <td>Task Due Date</td>
+            <td>Task Description</td>
+        </tr>
+        <% for ( var i =0; i< taskDb.length;i++){ %>
+        <tr>
+            <td>
+                <%= taskDb[i].taskName %>
+            </td>
+            <td>
+                <%= taskDb[i].taskDueDate %>
+            </td>
+            <td>
+                <%= taskDb[i].taskDescription %>
+            </td>
+        </tr>
+        <% }%>
+</body>
+
+</html>
