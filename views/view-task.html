@@ -8,32 +8,40 @@
             border: 1px solid black;
         }
     </style>
+
+    <link rel="stylesheet" href="style.css">
+
 </head>
 
 <body>
-    <h1> Welcome
-        <%= username%>
+    <h1> List of Tasks
     </h1>
     </br>
-    <table>
-        <tr>
-            <td>Task Name</td>
-            <td>Task Due Date</td>
-            <td>Task Description</td>
-        </tr>
-        <% for ( var i =0; i< taskDb.length;i++){ %>
-        <tr>
-            <td>
-                <%= taskDb[i].taskName %>
-            </td>
-            <td>
-                <%= taskDb[i].taskDueDate %>
-            </td>
-            <td>
-                <%= taskDb[i].taskDescription %>
-            </td>
-        </tr>
-        <% }%>
+    <a href="http://localhost:8080/add-task">Add Task</a>
+    <a href="http://localhost:8080/">Home</a>
+    </br>
+    <div>
+        <table>
+            <tr>
+                <td>Task Name</td>
+                <td>Task Due Date</td>
+                <td>Task Description</td>
+            </tr>
+            <% for ( var i =0; i< taskDb.length;i++){ %>
+            <tr>
+                <td>
+                    <%= taskDb[i].taskname %>
+                </td>
+                <td>
+                    <%= taskDb[i].taskduedate %>
+                </td>
+                <td>
+                    <%= taskDb[i].taskdescription %>
+                </td>
+            </tr>
+            <% }%>
+        </table>
+    </div>
 </body>
 
 </html>

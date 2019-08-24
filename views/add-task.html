@@ -1,7 +1,17 @@
 <html>
-    <form>
-        <label>Task Name: </label> <input type="text"  name="taskName"/> </br>
-        <label>Task Due Date: </label> <input type="text" name="taskDueDate"/> </br>
-        <label>Task Description: </label> <input type="text" name="taskDescription"/> 
-    </form>
+
+<head>
+    <link rel="stylesheet" href="style.css">
+</head>
+<form action="/addtask" method="POST">
+    <div><label>Task Name: </label> <input type="text" name="taskName" /></div></br>
+    <div><label>Task Due Date: </label> <input type="text" name="taskDueDate" /> </div> </br>
+    <div><label>Task Description: </label> <input type="text" name="taskDescription" /> </div></br>
+
+    <button>submit</button>
+</form>
+</br>
+<a href="http://localhost:8080/list-task">View Task</a>
+<a href="http://localhost:8080/">Home</a>
+
 </html>
