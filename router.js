@@ -36,7 +36,7 @@ router.post('/addtask', function (req, res) {
     console.log(task);
     
     db.push(task);
-    res.send("Thank you for adding a task");
+    // res.send("Thank you for adding a task");
     res.render('view-task.html', {
         username: "Guest",
         taskDb: db
