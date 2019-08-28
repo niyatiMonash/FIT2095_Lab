@@ -38,8 +38,8 @@ router.post('/addtask', function (req, res) {
     db.push(task);
     // res.send("Thank you for adding a task");
     res.render('view-task.html', {
-        username: "Guest",
-        taskDb: db
+        username1: "Guest",
+        taskDb1: db
     });
 });
 
