@@ -1,18 +1,11 @@
 <html>
 
 <head>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
-    <img src="todo.jpg">
-    <h1> Welcome
-        <%= username%>
-    </h1>
-    </br>
-    <h3>You ID is
-        <%= id%>
-    </h3>
+    <h1>Delete Task</h1></br>
     <h1>
         <a href="/">Tasks</a>
         <a href="/add-task">Insert Tasks</a>
@@ -20,6 +13,10 @@
         <a href="/update-task">Update Tasks</a>
         <a href="/delete-task">Delete Tasks</a>
     </h1>
+    <form action="/deletetaskdata" method="POST">
+     Old task name <input type="text" name="task_name" /> </br>
+        <input type="submit" value="Submit" /> </br>
+    </form>
 </body>
 
 </html>

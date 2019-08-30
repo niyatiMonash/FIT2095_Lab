@@ -1,0 +1,25 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <h1>Update Task</h1></br>
+    <h1>
+        <a href="/">Tasks</a>
+        <a href="/add-task">Insert Tasks</a>
+        <a href="/list-task">List Tasks</a>
+        <a href="/update-task">Update Tasks</a>
+        <a href="/delete-task">Delete Tasks</a>
+    </h1>
+    <form action="/updatetaskdata" method="POST">
+        Old task name <input type="text" method="POST" name="nameold" /> </br>
+        New task name <input type="text" method="POST" name="namenew" /> </br>
+        New task due date<input type="text" method="POST" name="duedatenew" /> </br>
+        New task description <input type="text" method="POST" name="descriptionnew" /> </br>
+        <input type="submit" value="Submit" /> </br>
+    </form>
+</body>
+
+</html>
