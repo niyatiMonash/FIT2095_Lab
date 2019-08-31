@@ -28,20 +28,32 @@
     <div>
         <table>
             <tr>
+                <td>Task Id</td>
                 <td>Task Name</td>
                 <td>Task Due Date</td>
                 <td>Task Description</td>
+                <td>Task Assigned to </td>
+                <td>Task Status</td>
             </tr>
             <% for ( var i =0; i<taskDb.length;i++){ %>
             <tr>
                 <td>
-                    <%= taskDb[i].name %>
+                    <%= taskDb[i]._id %>
                 </td>
                 <td>
-                    <%= taskDb[i].duedate %>
+                    <%= taskDb[i].taskName %>
                 </td>
                 <td>
-                    <%= taskDb[i].description %>
+                    <%= taskDb[i].taskDueDate %>
+                </td>
+                <td>
+                    <%= taskDb[i].taskDescription %>
+                </td>
+                <td>
+                    <%= taskDb[i].taskAssignTo %>
+                </td>
+                <td>
+                    <%= taskDb[i].taskStatus %>
                 </td>
             </tr>
             <% }%>

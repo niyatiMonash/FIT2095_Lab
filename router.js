@@ -28,7 +28,7 @@ function (err, client) {
         console.log("Err  ", err);
     } else {
         console.log("Connected successfully to server");
-        db = client.db("fit2095db");
+        db = client.db("fit2095db"); //db name 
     }
 });
 
@@ -49,9 +49,11 @@ router.post('/addtask', function (req, res) {
     console.log(taskdetails);
     
     db.collection('task').insertOne({
-        name: taskdetails.taskName,
-        duedate: taskdetails.taskDueDate,
-        description: taskdetails.taskDescription
+        taskName: taskdetails.taskName,
+        taskDueDate: taskdetails.taskDueDate,
+        taskDescription: taskdetails.taskDescription,
+        taskAssignTo: taskdetails.taskAssignTo, 
+        taskStatus: taskdetails.taskStatus
     });
     
     res.redirect('/list-task');
@@ -73,17 +75,19 @@ router.get('/update-task', function (req, res) {
 //update tasks data
 router.post('/updatetaskdata', function (req, res) {
     let taskdetails = req.body;
+    console.log(taskdetails);
+
     let filter = {
-        name: taskdetails.nameold
+        _id: taskdetails.taskId
     };
     let theUpdate = {
         $set: {
-            name: taskdetails.namenew,
-            duedate: taskdetails.duedatenew,
-            description: taskdetails.descriptionnew
+            taskStatus: taskdetails.newTaskStatus
         }
     };
-    db.collection('task').updateOne(filter, theUpdate);
+        
+    db.collection('task').updateOne((filter, theUpdate), {upsert:true}, function (err, result) {
+    });
     res.redirect('/list-task'); // redirect the client to list users page
 });
 
@@ -97,9 +101,16 @@ router.post('/deletetaskdata', function (req, res) {
     console.log(taskDetails);
     
     let filter = {
-        name: taskDetails.task_name
+        _id: taskDetails.task_id
     };
+    console.log(filter);
+    
     db.collection('task').deleteOne(filter);
+    res.redirect('/list-task'); // redirect the client to list users page
+});
+
+router.post('/deletecompletedtask', function(req, res){
+    db.collection('task').deleteMany({taskStatus : "complete"})
     res.redirect('/list-task'); // redirect the client to list users page
 });
 

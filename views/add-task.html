@@ -2,6 +2,7 @@
 
 <head>
     <link rel="stylesheet" href="style.css">
+    <link rel = "icon"  href = "todo.jpg">
 </head>
 <h1>
     <a href="/">Tasks</a>
@@ -13,7 +14,15 @@
 <form action="/addtask" method="POST">
     <div><label>Task Name: </label> <input type="text" name="taskName" /></div></br>
     <div><label>Task Due Date: </label> <input type="text" name="taskDueDate" /> </div> </br>
+    <div><label>Task Status: </label>
+        <select name="taskStatus">
+            <option value="complete">Completed</option>
+            <option value="inprogress">In Progress</option>
+        </select>
+    </div></br>
+
     <div><label>Task Description: </label> <input type="text" name="taskDescription" /> </div></br>
+    <div><label>Task Assigned to: </label> <input type="text" name="taskAssignTo" /> </div></br>
 
     <button>submit</button>
 </form>

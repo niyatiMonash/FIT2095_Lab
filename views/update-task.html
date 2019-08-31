@@ -1,7 +1,8 @@
 <html>
 
 <head>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel = "icon"  href = "todo.jpg">
 </head>
 
 <body>
@@ -14,10 +15,13 @@
         <a href="/delete-task">Delete Tasks</a>
     </h1>
     <form action="/updatetaskdata" method="POST">
-        Old task name <input type="text" method="POST" name="nameold" /> </br>
-        New task name <input type="text" method="POST" name="namenew" /> </br>
-        New task due date<input type="text" method="POST" name="duedatenew" /> </br>
-        New task description <input type="text" method="POST" name="descriptionnew" /> </br>
+        Task Id <input type="text" name="taskId" /> </br>
+        <div><label>Task Status: </label>
+            <select name="newTaskStatus">
+                <option value="complete">Completed</option>
+                <option value="inprogress">In Progress</option>
+            </select>
+        </div></br>
         <input type="submit" value="Submit" /> </br>
     </form>
 </body>

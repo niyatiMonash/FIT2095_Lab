@@ -1,7 +1,8 @@
 <html>
 
 <head>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel = "icon"  href = "todo.jpg">
 </head>
 
 <body>
@@ -14,8 +15,12 @@
         <a href="/delete-task">Delete Tasks</a>
     </h1>
     <form action="/deletetaskdata" method="POST">
-     Old task name <input type="text" name="task_name" /> </br>
+        Task Id <input type="text" name="task_id" /> </br>
         <input type="submit" value="Submit" /> </br>
+    </form>
+    <form action="/deletecompletedtask" method="POST">
+        <h3>Removes all the completed tasks ? <input type="submit" value="Yes" /></h3>
+         </br>
     </form>
 </body>
 
