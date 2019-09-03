@@ -16,7 +16,7 @@ router.use(bodyParser.json())
 const MongoClient = mongodb.MongoClient;
 
 // Connection URL
-const url = "mongodb://35.189.49.223:27017/";
+const url = "mongodb://localhost:27017/";
 
 //reference to the database (i.e. collection)
 let db;
@@ -79,7 +79,8 @@ router.get('/update-task', function (req, res) {
 router.post('/updatetaskdata', function (req, res) {
     let taskdetails = req.body;
     console.log(taskdetails);
-
+    console.log(ObjectId(taskdetails.taskId));
+    
     let filter = {
         _id: ObjectId(taskdetails.taskId)
     };
@@ -89,7 +90,8 @@ router.post('/updatetaskdata', function (req, res) {
         }
     };
         
-    db.collection('task').updateOne((filter, theUpdate),function (err, result) {
+    db.collection('task').updateOne(filter, theUpdate,{upsert: true},function (err, result) {
+        console.log(err)
     });
     res.redirect('/list-task'); // redirect the client to list users page
 });
@@ -114,6 +116,17 @@ router.post('/deletetaskdata', function (req, res) {
 
 router.post('/deletecompletedtask', function(req, res){
     db.collection('task').deleteMany({taskStatus : "complete"})
+    res.redirect('/list-task'); // redirect the client to list users page
+});
+
+// lab task: delete old complete 
+
+router.post("/deleteOldComplete", function(req,res){
+    let filter = {
+        taskStatus : "complete",
+        taskDueDate: {$lt: "2019-08-30"}
+    }
+    db.collection('task').deleteMany(filter);
     res.redirect('/list-task'); // redirect the client to list users page
 });
 
