@@ -16,7 +16,7 @@ router.use(bodyParser.json())
 const MongoClient = mongodb.MongoClient;
 
 // Connection URL
-const url = "mongodb://localhost:27017/";
+const url = "mongodb://35.189.49.223:27017/";
 
 //reference to the database (i.e. collection)
 let db;
