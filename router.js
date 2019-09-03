@@ -3,6 +3,8 @@ const mongodb = require("mongodb");
 let router = express.Router();
 let bodyParser = require('body-parser');
 
+ObjectId = require('mongodb').ObjectID;
+
 // parse application/x-www-form-urlencoded
 router.use(bodyParser.urlencoded({
     extended: false
@@ -29,6 +31,7 @@ function (err, client) {
     } else {
         console.log("Connected successfully to server");
         db = client.db("fit2095db"); //db name 
+       // col = db.collection('task'); //creates a table if there isn't one
     }
 });
 
@@ -78,7 +81,7 @@ router.post('/updatetaskdata', function (req, res) {
     console.log(taskdetails);
 
     let filter = {
-        _id: taskdetails.taskId
+        _id: ObjectId(taskdetails.taskId)
     };
     let theUpdate = {
         $set: {
@@ -86,7 +89,7 @@ router.post('/updatetaskdata', function (req, res) {
         }
     };
         
-    db.collection('task').updateOne((filter, theUpdate), {upsert:true}, function (err, result) {
+    db.collection('task').updateOne((filter, theUpdate),function (err, result) {
     });
     res.redirect('/list-task'); // redirect the client to list users page
 });
@@ -101,7 +104,7 @@ router.post('/deletetaskdata', function (req, res) {
     console.log(taskDetails);
     
     let filter = {
-        _id: taskDetails.task_id
+        _id: ObjectId(taskDetails.task_id)
     };
     console.log(filter);
     

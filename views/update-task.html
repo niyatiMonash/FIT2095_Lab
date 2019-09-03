@@ -2,7 +2,7 @@
 
 <head>
     <link rel="stylesheet" href="style.css">
-    <link rel = "icon"  href = "todo.jpg">
+    <link rel="icon" href="todo.jpg">
 </head>
 
 <body>
@@ -16,12 +16,7 @@
     </h1>
     <form action="/updatetaskdata" method="POST">
         Task Id <input type="text" name="taskId" /> </br>
-        <div><label>Task Status: </label>
-            <select name="newTaskStatus">
-                <option value="complete">Completed</option>
-                <option value="inprogress">In Progress</option>
-            </select>
-        </div></br>
+        <div><label>Task Status: </label><input type="text" name="newTaskStatus" /></div></br>
         <input type="submit" value="Submit" /> </br>
     </form>
 </body>
